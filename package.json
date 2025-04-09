@@ -1,0 +1,33 @@
+{
+  "name": "organic",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "IS",
+  "type": "module",
+  "main": "index.ts",
+  "imports": {
+    "#types/*": "./dist/types/*.js",
+    "#services/*": "./dist/services/*.js",
+    "#config/*": "./dist/config/*.js"
+  },
+  "scripts": {
+    "dev": "npm run migrate:up && node --import=tsx src/index.ts",
+    "start": "npm run migrate:up && node  ./dist/index.js",
+    "migrate:create": "node-pg-migrate create -m ./src/migrations/ -j ts",
+    "migrate:up": "tsc && node-pg-migrate up -m ./dist/migrations/",
+    "migrate:down": "tsc && node-pg-migrate down -m ./dist/migrations/"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.11",
+    "node-pg-migrate": "^7.9.1",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "pg": "^8.14.1"
+  }
+}
