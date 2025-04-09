@@ -1,13 +1,13 @@
 # Organic Test
 
-### Init
+### Init with Docker
 
 ```js
 npm i
 docker compose up --build
 ```
 
-local:
+### Init without Docker
 
 ```js
 npm i
